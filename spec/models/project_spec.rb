@@ -67,7 +67,12 @@ RSpec.describe Project, type: :model do
       expect(project).to_not be_late
     end
     
-    
+  end
+  
+  # たくさんのメモが追加されていること
+  it "can have many notes" do
+    project = FactoryBot.create(:project, :with_notes)
+    expect(project.notes.length).to eq 5
   end
   
 end
