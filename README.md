@@ -29,4 +29,6 @@ more about Git, I recommend the free resources [Git Immersion] or [Try Git].
 
 # 学習記録
 第３章学習時点から記入
-- 第３章学習完了
+
+- 2月3日 第３章学習完了
+- 2月4日　第4章[ファクトリでkんれんを扱う]まで完了
