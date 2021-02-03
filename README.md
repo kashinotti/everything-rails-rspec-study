@@ -31,5 +31,4 @@ more about Git, I recommend the free resources [Git Immersion] or [Try Git].
 第３章学習時点から記入
 
 - 2月3日 第３章学習完了
-- 2月4日　第4章[ファクトリで関連を扱う]まで完了
-- 2月5日　第4章[ファクトリ内で重複を減らそう]まで完了
+- 2月4日　第4章学習完了
