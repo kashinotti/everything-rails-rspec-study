@@ -85,22 +85,38 @@ RSpec.describe ProjectsController, type: :controller do
       before do
         @user = FactoryBot.create(:user)
       end
-
-      it "adds a project" do
-        project_params = FactoryBot.attributes_for(:project)
-        sign_in @user
-
-        expect {
-          post :create, params: {project: project_params}
-        }.to change(@user.projects, :count).by(1)
-
+    
+      # 有効な属性値の場合
+      context "with valid attributes" do
+        # プロジェクトを追加できること
+        it "adds a project" do
+          project_params = FactoryBot.attributes_for(:project)
+          sign_in @user
+  
+          expect {
+            post :create, params: {project: project_params}
+          }.to change(@user.projects, :count).by(1)
+  
+        end
       end
-
+      
+      
+      # 無効な属性値の場合
+      context "with invalid atributes" do
+        # プロジェクトを追加できないこと
+        it "does not add a project" do
+          project_params = FactoryBot.attributes_for(:project, :invalid)
+          sign_in @user
+          expect {
+            post :create, params: { project: project_params }
+          }.to_not change(@user.projects, :count)
+        end
+      end
     end
 
 
     context "as a guest" do
-      "302レスポンスを返すこと"
+      # 302レスポンスを返すこと
       it "returns a 302 response" do
         project_params = FactoryBot.attributes_for(:project)
         post :create, params: { project: project_params }
@@ -112,10 +128,7 @@ RSpec.describe ProjectsController, type: :controller do
         post :create, params: { project: project_params }
         expect(response).to redirect_to "/users/sign_in"
       end
-
-
     end
-
   end
 
 
@@ -159,7 +172,7 @@ RSpec.describe ProjectsController, type: :controller do
         patch :update, params: { id: @project.id, project: project_paramas }
         expect(response).to redirect_to root_path
       end
-
+    end
 
       context "as a guest" do
         before do
@@ -179,9 +192,7 @@ RSpec.describe ProjectsController, type: :controller do
           patch :update, params: { id: @project.id, project: project_paramas}
           expect(response).to redirect_to "/users/sign_in"
         end
-
       end
-    end
   end
 
 
