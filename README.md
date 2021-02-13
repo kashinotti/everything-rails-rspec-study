@@ -36,3 +36,4 @@ more about Git, I recommend the free resources [Git Immersion] or [Try Git].
 - 2月7日　第５章学習完了
 - 2月10日　第６章学習完了
 - 2月13日　第８章学習完了
+- 2月14日　第９章学習完了
